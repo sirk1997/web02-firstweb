@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sell Watch</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link href="/stylesheets/home.css" rel="stylesheet" text="text/css" />
+  <link href="/stylesheets/profile.css" rel="stylesheet" text="text/css" />
+</head>
+
+<body>	
+	<!--Phần top-->
+	<div class="top">
+		<div class="container">
+				<% if(!layoutVM.isLogged) {%>
+					<div class="header-item">
+							<a href="/login">Sign in</a>
+						</div>	
+			<% } else {%>
+				<div class="header-item">
+						<a href="/logout">Sign out</a>
+                    </div>
+                <div class="header-item">
+                            <a href="/profile/upload-product">Upload product</a>
+                        </div>    
+				<div class="header-item">
+					<a href="/profile"><%= layoutVM.user.username%></a>
+                </div>
+                
+				<%}%>
+		</div>
+	</div> 
+	<!--Kết thúc top-->
+	
+	<!--Phần logo-->
+	<div class="logo">
+		<a href="/profile"><h1>PROFILE</h1></a>
+	</div>
+	<!--Kết thúc logo-->
+	
+	<!--Phần menu-->
+	<div class="menu">
+		<div class="container">
+			<div id="list">
+				<ul>
+          <li><a href="/">Home</a></li>			
+          <li><a href="/">Men</a></li>			
+          <li><a href="/">Women</a></li>			
+          <li><a href="/">Contact</a></li>				
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--Kết thúc menu-->
+
+
+    <!--Phần nội dung profile-->
+    <div class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4"> 
+                    <%if(!layoutVM.user.avatar){%>
+                        <img alt="defaultavatar" src="/images/defaultavatar.png"/>
+                    <%} else {%>
+                        <img alt="avatar" src="/images/<%=layoutVM.user.avatar%>"/>
+                   <%}%>                   
+                </div>
+                <div class="col-sm-8">
+                    <h3>Username: <%=layoutVM.user.username%></h3><br/>
+                    <h3>Email:    <%=layoutVM.user.email%></h3><br/> 
+                    <form action="/profile/uploadAvatar" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="photos" class="form-control">
+                        <button type="submit" class="btn btn-primary" style="margin-top: 20px">Upload Avatar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Kết thúc Phần nội dung profile-->
+	
+	<!--Phần thông tin-->
+	<div class="contact">
+		<div class="container">
+			<div class="info">
+				<h3>Follow Us</h3><br />
+				<ul>
+					<li>
+						<a href="#">
+							<span class="social" id="facebook"></span>
+							<span class="txtSocial">Facebook</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<span class="social" id="twitter"></span>
+							<span class="txtSocial">Twitter</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<span class="social" id="google"></span>
+							<span class="txtSocial">Google</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="info">
+				<h3>Information</h3><br />
+				<ul>
+					<li> <a href="#">Specials</a></li>
+					<li> <a href="#">New Products</a></li>
+					<li> <a href="#">Our Stores</a></li>
+					<li> <a href="#">Contact Us</a></li>
+					<li> <a href="#">Top Sellers</a></li>
+				</ul>
+			</div>
+			
+			<div class="info">
+				<h3>My Account</h3><br />
+				<ul>
+					<li> <a href="#">My Account</a></li>
+					<li> <a href="#">My Credit slips</a></li>
+					<li> <a href="#">My Merchandise returns</a></li>
+					<li> <a href="#">My Personal info</a></li>
+					<li> <a href="#">My Addresses</a></li>
+				</ul>
+			</div>
+			
+			<div class="info">
+				<h3>Store Information</h3><br />
+				<span class="ct">The company name.</span><br />
+				<span class="ct">Lorem ispum dolor.</span><br />
+				<span class="ct">Glasglow Dr 40 Fe 72.</span><br /><br />
+				<span class="ct">+955 123 4567</span><br />
+				<span class="ct">contact@example.com</span>
+			</div>	
+		</div>
+		<hr class="phanvung"/>
+	</div>
+	<!--Kết thúc thông tin-->
+	
+	<!--Phần footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="child" id="leftfooter">
+				<form action="#" method="post">
+					<input type="text" placeholder="Enter Your Email" id="txt2"/>
+					<input type="submit" value="Subscribe" id="sub"/>
+				</form>
+			</div>
+			
+			<div class="child" id="rightfooter">		
+				<span>© 2015 myclass.vn Luxury Watches. All Rights Reserved | Design by W3layouts</span>
+			</div>
+		</div>
+	</div>
+	<!--Kết thúc footer-->
+</body>
+</html>

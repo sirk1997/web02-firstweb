@@ -1,0 +1,22 @@
+{
+    "development": {
+      "username": "postgres",
+      "password": "sirk@1997",
+      "database": "myweb",
+      "host": "127.0.0.1",
+      "dialect": "postgres",
+      "logging": false
+    },
+    "production": {
+      "username": "gfhtdaizqmxfza",
+      "password": "379d53826b0a4f757c90119a39aeaa03849e4d5d0142d8d149b5b7d9d7a00699",
+      "database": "d1vu09hs66qga5",
+      "host": "ec2-50-17-246-114.compute-1.amazonaws.com",
+      "dialect": "postgres",
+      "port":5432,
+      "dialectOptions": {
+        "ssl": true
+        }
+    }
+  }
+  

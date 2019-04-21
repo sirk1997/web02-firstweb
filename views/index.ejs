@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sell Watch</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link href="/stylesheets/home.css" rel="stylesheet" text="text/css" />
+</head>
+
+<body>	
+	<!--Phần top-->
+	<div class="top">
+		<div class="container">
+				<% if(!layoutVM.isLogged) {%>
+					<div class="header-item">
+							<a href="/login">Sign in</a>
+						</div>	
+			<% } else {%>
+				<div class="header-item">
+						<a href="/logout">Sign out</a>
+					</div>
+					<div class="header-item">
+							<a href="/profile/upload-product">Upload product</a>
+					</div> 
+				<div class="header-item">
+					<a href="/profile"><%= user.username%></a>
+				</div>
+				<%}%>
+		</div>
+	</div> 
+	<!--Kết thúc top-->
+	
+	<!--Phần logo-->
+	<div class="logo">
+		<a href="trangchu.php"><h1>LUXURY WATCHES</h1></a>
+	</div>
+	<!--Kết thúc logo-->
+	
+	<!--Phần menu-->
+	<div class="menu">
+		<div class="container">
+			<div id="list">
+				<ul>
+          <li><a href="/">Home</a></li>			
+          <li><a href="/">Men</a></li>			
+          <li><a href="/">Women</a></li>			
+          <li><a href="/">Contact</a></li>				
+				</ul>
+			</div>
+		
+			<!-- <div id="search">
+				<form action="abc.php" method="post">
+					<div id="containSearch">
+						<input type="text" placeholder="Search" id="txt" />
+						<input type="submit" id="button" value/>
+					</div>
+				</form>
+			</div> -->
+		</div>
+	</div>
+	<!--Kết thúc menu-->
+	
+	<!--Phần slider-->
+	<div class="slider">
+		<img src="images/bnr-1.jpg" alt="slide 1" />
+	</div>
+	<!--Kết thúc slider-->
+	
+	<!--Phần 3 mục tiêu biểu-->
+	<div class="recommend">
+		<div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          	<div id="hinh">
+                <img src="images/abt-1.jpg" alt="recommend 1"/>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div id="hinh">
+                <img src="images/abt-2.jpg" alt="recommend 2"/>
+              </div>           
+        </div>
+        <div class="col-sm-4">
+            <div id="hinh">
+                <img src="images/abt-3.jpg" alt="recommend 3"/>
+              </div>
+        </div>
+      </div>			
+		</div>
+	</div>
+	<!--Kết thúc 3 mục tiêu biểu-->
+	
+	<!--Phần sản phẩm-->
+	<div class="product">
+		<div class="container">
+      <div class="row">
+					<% products.forEach(function(product) { %>
+						<div class="col-sm-3">
+								<div class="detail">
+										<div class="image">
+											<img src="/images/<%= product.image %>"  alt ="sp1"/>
+										</div>										
+										<div class="infow">
+											<span class="name"><%= product.name %></span><br />
+											<span class="description"><%= product.description %></span>
+											<span class="review">REVIEW NOW</span>
+											<div>
+												<img src="images/cart-2.png" alt="cart 2" />
+												<span class="price">$<%= product.price %></span>
+											</div> 
+											<br />
+											<span>-50%</span>
+										</div>
+									</div>
+						</div>					
+				<% }); %>       
+		</div>
+	</div>
+	<!--Kết thúc sản phẩm-->
+	
+	<!--Phần thông tin-->
+	<div class="contact">
+		<div class="container">
+			<div class="info">
+				<h3>Follow Us</h3><br />
+				<ul>
+					<li>
+						<a href="#">
+							<span class="social" id="facebook"></span>
+							<span class="txtSocial">Facebook</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<span class="social" id="twitter"></span>
+							<span class="txtSocial">Twitter</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<span class="social" id="google"></span>
+							<span class="txtSocial">Google</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="info">
+				<h3>Information</h3><br />
+				<ul>
+					<li> <a href="#">Specials</a></li>
+					<li> <a href="#">New Products</a></li>
+					<li> <a href="#">Our Stores</a></li>
+					<li> <a href="#">Contact Us</a></li>
+					<li> <a href="#">Top Sellers</a></li>
+				</ul>
+			</div>
+			
+			<div class="info">
+				<h3>My Account</h3><br />
+				<ul>
+					<li> <a href="#">My Account</a></li>
+					<li> <a href="#">My Credit slips</a></li>
+					<li> <a href="#">My Merchandise returns</a></li>
+					<li> <a href="#">My Personal info</a></li>
+					<li> <a href="#">My Addresses</a></li>
+				</ul>
+			</div>
+			
+			<div class="info">
+				<h3>Store Information</h3><br />
+				<span class="ct">The company name.</span><br />
+				<span class="ct">Lorem ispum dolor.</span><br />
+				<span class="ct">Glasglow Dr 40 Fe 72.</span><br /><br />
+				<span class="ct">+955 123 4567</span><br />
+				<span class="ct">contact@example.com</span>
+			</div>	
+		</div>
+		<hr class="phanvung"/>
+	</div>
+	<!--Kết thúc thông tin-->
+	
+	<!--Phần footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="child" id="leftfooter">
+				<form action="#" method="post">
+					<input type="text" placeholder="Enter Your Email" id="txt2"/>
+					<input type="submit" value="Subscribe" id="sub"/>
+				</form>
+			</div>
+			
+			<div class="child" id="rightfooter">		
+				<span>© 2015 myclass.vn Luxury Watches. All Rights Reserved | Design by W3layouts</span>
+			</div>
+		</div>
+	</div>
+	<!--Kết thúc footer-->
+</body>
+</html>
